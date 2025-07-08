@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>💘Seni Çok Seviyorum! 💘</title>
+  <title>Seni Çoooook Seviyorum! 💘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
@@ -17,19 +17,23 @@
       background: radial-gradient(circle at center, #ffd6e8, #ff99cc);
       overflow: hidden;
       height: 100vh;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Great Vibes', cursive;
+      text-align: center;
+      padding: 20px;
     }
 
     h1 {
       position: absolute;
       color: #ff007f;
-      font-size: 4.5em;
+      font-size: 10vw; /* responsive yazı tipi */
       text-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
       z-index: 2;
       animation: pulse 2s infinite;
+      max-width: 90vw;
     }
 
     @keyframes pulse {
@@ -56,10 +60,17 @@
         opacity: 0;
       }
     }
+
+    /* Küçük ekranlar için ekstra düzenleme */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 12vw;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>💘Seni Çok Seviyorum 💖</h1>
+  <h1>Seni Çooook Seviyorum 💖</h1>
 
   <script>
     const colors = ['#ff4d88', '#ff66cc', '#ff1a8c', '#ff99cc', '#ff80b3'];
@@ -69,8 +80,10 @@
       heart.classList.add('heart');
       heart.innerHTML = '❤️';
 
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = Math.random() * 40 + 20 + 'px';
+      const screenWidth = window.innerWidth;
+
+      heart.style.left = Math.random() * screenWidth + 'px';
+      heart.style.fontSize = Math.random() * 30 + 20 + 'px';
       heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
       heart.style.color = colors[Math.floor(Math.random() * colors.length)];
       heart.style.transform = `rotate(${Math.random() * 360}deg)`;
@@ -84,7 +97,6 @@
       }, 5000);
     }
 
-    // Daha sık kalp çıkışı
     setInterval(createCrazyHeart, 100);
   </script>
 </body>
