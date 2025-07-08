@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>💘Seni Çok Seviyorum! 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #ffd6e8, #ff99cc);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    h1 {
+      position: absolute;
+      color: #ff007f;
+      font-size: 4.5em;
+      text-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
+      z-index: 2;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 0;
+      animation: floatUp 5s linear forwards;
+      will-change: transform, opacity;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(720deg) scale(1.6);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💘Seni Çok Seviyorum 💖</h1>
+
+  <script>
+    const colors = ['#ff4d88', '#ff66cc', '#ff1a8c', '#ff99cc', '#ff80b3'];
+
+    function createCrazyHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 40 + 20 + 'px';
+      heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.transform = `rotate(${Math.random() * 360}deg)`;
+      heart.style.filter = `drop-shadow(0 0 5px ${heart.style.color})`;
+      heart.style.bottom = '0';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Daha sık kalp çıkışı
+    setInterval(createCrazyHeart, 100);
+  </script>
+</body>
+</html>
